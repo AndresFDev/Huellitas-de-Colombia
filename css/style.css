@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+button,body,legend,input,fieldset {
+    font-family: "Montserrat", sans-serif
+}
+
+.big {
+    font-size:xx-large;
+}
+
+table.dashed {
+    border-style: dashed;
+    border-color:#8ABB2B;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+div.dashed {
+    border-style: dashed;
+    border-color:#8ABB2B;
+    /* border-radius: 25px; */
+    padding: 20px;
+    margin: 20px;
+}
+
+.center {
+    width:100%;
+    overflow:hidden;
+    text-align:center!important;
+}
+
+.left {
+    width:100%;
+    overflow:hidden;
+    text-align:left!important;
+}
+
+.right {
+    width:100%;
+    overflow:hidden;
+    text-align:right!important;
+}
+
+.content {
+    margin: 1% auto;;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Eacologica';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Eacologica Regular'), local('Eacologica-Regular'), url(../fonts/eacologica-round-slab-ffp.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Eacologica';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Eacologica Regular'), local('Eacologica-Regular'), url(../fonts/eacologica-round-slab-ffp.woff2) format('woff2');
+}
