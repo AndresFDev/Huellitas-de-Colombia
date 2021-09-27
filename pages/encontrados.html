@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+            overflow-x: hidden;
+        }
+        .title-l1 {
+            text-align: center;
+        }
+        .mb-2 {
+            margin-bottom: 15px;
+        }
+        .col-3 {
+            flex: 0 0 auto;
+            width: 20%;
+            padding: 0 15px;
+        }
+        .col-4 {
+            flex: 0 0 auto;
+            width: 30%;
+            padding: 0 15px;
+        }
+        .col-9 {
+            flex: 0 0 auto;
+            width: 75%;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #header-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 30vh;
+            background: #276f80;
+            color: #fff;
+        }
+        .filter-group {
+            border: #965eaa solid;
+            padding: 15px 30px;
+        }
+        .form-group select{
+            max-width: 300px;
+            width: 100%;
+        }
+        #box-form {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .title-n1 {
+            width: 100%;
+        }
+        .name-pets {
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #6caa22;
+            color: #fff;
+        }
+        .name-pets .name-pets-h2{
+            margin: 0;
+        }
+        .photo-pets {
+            min-height: 150px;
+            background: #8856bb;
+        }
+        .date-state-pets {
+            min-height: 25px;
+            display: flex;
+            padding: 10px;
+            justify-content: flex-start;
+            align-items: center;
+            font-weight: bold;
+        }
+        .encontrado {
+            background: #6caa22;
+            color: #fff;
+        }
+        .box-extract-pets {
+            padding: 15px;
+            border: #6caa22 solid;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-pets a {
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            background: #6caa22;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header id="header-banner">
+        <h1>Huellitas de Colombia</h1>
+    </header>
+    <main id="list-post">
+        <div id="box-main" class="bg-img">
+            <div id="box-form" class="bg-form">
+                <div id="header" class="title-n1">
+                    <h1 class="title-l1">Me has visto?</h1>
+                </div>
+                <div class="col-3">
+                    <div class="filter-group">
+                        <h2 class="mb-2" style="margin-top: 0;">Filtrar por:</h2>
+                        <div class="form-group mb-2">
+                            <select id="mascota-type" name="mascota-type" class="form-unide">
+                                <option selected>Tipo de mascota<option>
+                                <option value="1">Perro</option>
+                                <option value="2">Gato</option>
+                                <option value="3">Conejo</option>
+                                <option value="4">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <select id="mascota-raza" name="mascota-raza" class="form-unide">
+                                <option selected>Raza<option>
+                                <option value="1">Labrador</option>
+                                <option value="2">Poodle</option>
+                                <option value="3">Show show</option>
+                                <option value="4">Pincher</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <select id="mascota-size" name="mascota-size" class="form-unide">
+                                <option selected>Tamano<option>
+                                <option value="1">Pequeno</option>
+                                <option value="2">Mediano-Pequeno</option>
+                                <option value="3">Mediano-Grande</option>
+                                <option value="4">Grande</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <select id="mascota-color" name="mascota-color" class="form-unide">
+                                <option selected>Color de mascota<option>
+                                <option value="1">Amarillo</option>
+                                <option value="2">Negro</option>
+                                <option value="3">Blanco</option>
+                                <option value="4">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                    <article class="card card-pets col-4 mb-2">
+                        <div class="name-pets">
+                            <h2 class="name-pets-h2">Lili</h2>
+                        </div>
+                        <div class="photo-pets" style="background-image: url('')"></div>
+                        <div class="date-state-pets encontrado">
+                            Encontrado 10-12-2020
+                        </div>
+                        <div class="box-extract-pets">
+                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
+                            <span class="ubication mb-2">La isla, Medellin</span>
+                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        </div>
+                        <a href="#">Ver perfil</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
