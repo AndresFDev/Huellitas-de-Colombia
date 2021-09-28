@@ -18,7 +18,16 @@ button,body,legend,input,fieldset {
 
 .dashed {
     border-style: dashed!important;
+    border-radius: 25px;
+}
+
+.border-green {
     border-color:#8ABB2B !important;
+    border-radius: 25px;
+}
+
+.border-brown {
+    border-color:#C07E4E !important;
     border-radius: 25px;
 }
 
