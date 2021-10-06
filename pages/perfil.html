@@ -8,31 +8,53 @@
         <meta name="keywords" content="partidos, goles">
         <meta name="robots" content="index, follow">
         <title>Huellitas de Colombia</title>
+        <link rel="icon" type="image/svg" sizes="32x32" href="../img/logo_huella_w.svg">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" id="bootstrap-css">
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <header>
-            <div>
-                <iframe src="../layouts/nav.html" frameborder="0" width="100%" height="50px"></iframe>
+        <header class="bg-head">
+            <div class="left left-medium-head">
+            <!-- <span class="padding"><h1 style="color: #FFFFFF; font-size: 50px;" class="opacity"><b>Huellitas en Colombia</b></h1></span>-->
+            <span><a class="hover-none text-center" href="../index.html"><img src="../img/logo_t_w.svg" style="width:45%"></a></span>
             </div>
         </header>
-        <main>
-            <div class="center">
-                <h3>Mi Perfil</h3>
-                <iframe src="../components/miPerfil.html" frameborder="0" width="30%" height="635px"></iframe>
+        <div id="navbar" class="no-marging">
+            <iframe src="../layouts/nav.html" frameborder="0" width="100%" height="40px"></iframe>
+        </div>
+        <main style="background-image: url(../img/separador_br_v.svg); background-repeat: no-repeat; background-attachment: fixed; background-size: 8%; background-position: 100%;">
+            <div class="text-center p-3" >
+                <h3 class="p-2">Mi Perfil</h3>
+                <iframe src="../components/miPerfil.html" frameborder="0" width="400px" height="520px"></iframe>
             </div>
-            <div class="center">
-                <h3>Mis Entradas</h3>
-                <iframe src="../components/misEntradas.html" frameborder="0" width="30%" height="600px"></iframe>
+            <div class="text-center no-marging p-3 bg-none">
+                <h3 class="p-2">Mis Entradas</h3>
+                <iframe src="../components/misEntradas.html" frameborder="0" width="85%" height="420px"></iframe>
             </div>
         </main>
-        <footer>
-            <div>
-                <iframe src="../layouts/footer.html" frameborder="0" width="100%" height="100px"></iframe>
-            </div>
-        </footer>
+        <div class="green">
+            <iframe src="../layouts/footer.html" frameborder="0" width="100%" height="150px"></iframe>
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+        <script>
+            // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+        
+        // Get the navbar
+        var navbar = document.getElementById("navbar");
+        
+        // Get the offset position of the navbar
+        var sticky = navbar.offsetTop;
+        
+        // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        } 
+        </script>
     </body>
 </html>
