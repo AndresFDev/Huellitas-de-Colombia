@@ -87,7 +87,7 @@ button,body,legend,input,fieldset,a {
     background-repeat: no-repeat; 
     background-attachment: fixed; 
     background-size: 100%; 
-    height: 500px;
+    height:70vh;
 }
 
 .entradas-center {
