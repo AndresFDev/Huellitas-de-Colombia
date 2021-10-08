@@ -1,347 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encontrados</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            outline: 0;
-            font-size: 100%;
-            vertical-align: baseline;
-            background: transparent;
-            overflow-x: hidden;
-        }
-        .title-l1 {
-            text-align: center;
-        }
-        .mb-2 {
-            margin-bottom: 15px;
-        }
-        .col-3 {
-            flex: 0 0 auto;
-            width: 20%;
-            padding: 0 15px;
-        }
-        .col-4 {
-            flex: 0 0 auto;
-            width: 30%;
-            padding: 0 15px;
-        }
-        .col-9 {
-            flex: 0 0 auto;
-            width: 75%;
-            padding: 0 15px;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        #header-banner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 30vh;
-            background: #276f80;
-            color: #fff;
-        }
-        .filter-group {
-            border: #965eaa solid;
-            padding: 15px 30px;
-        }
-        .form-group select{
-            max-width: 300px;
-            width: 100%;
-        }
-        #box-form {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .title-n1 {
-            width: 100%;
-        }
-        .name-pets {
-            min-height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #6caa22;
-            color: #fff;
-        }
-        .name-pets .name-pets-h2{
-            margin: 0;
-        }
-        .photo-pets {
-            min-height: 150px;
-            background: #8856bb;
-        }
-        .date-state-pets {
-            min-height: 25px;
-            display: flex;
-            padding: 10px;
-            justify-content: flex-start;
-            align-items: center;
-            font-weight: bold;
-        }
-        .encontrado {
-            background: #6caa22;
-            color: #fff;
-        }
-        .box-extract-pets {
-            padding: 15px;
-            border: #6caa22 solid;
-            display: flex;
-            flex-direction: column;
-        }
-        .card-pets a {
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            background: #6caa22;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <header id="header-banner">
-        <h1>Huellitas de Colombia</h1>
-    </header>
-    <main id="list-post">
-        <div id="box-main" class="bg-img">
-            <div id="box-form" class="bg-form">
-                <div id="header" class="title-n1">
-                    <h1 class="title-l1">Me conoces?</h1>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link href="../css/main.css" rel="stylesheet">
+        <link href="../css/newpost.css" rel="stylesheet">
+        <link href="../css/font.css" rel="stylesheet">
+        <link href="../css/solid.css" rel="stylesheet">
+        <link href="../css/brands.css" rel="stylesheet">
+
+        <title>Encontrados</title>
+    </head>
+    <body>
+        <header id="header-new-post" class="header banner-header d-flex align-items-center justify-content-center">
+            <div class="container z-9">
+                <div class="row">
+                    <h1 class="title-main text-left text-white text-primary text-uppercase fs-1 fw-bold">
+                        Me conoces?
+                    </h1>
                 </div>
+            </div>
+        </header>
+
+        <div class="container-fluid mt-5 pt-5">
+            <div class="row">
                 <div class="col-3">
-                    <div class="filter-group">
-                        <h2 class="mb-2" style="margin-top: 0;">Filtrar por:</h2>
-                        <div class="form-group mb-2">
-                            <select id="mascota-type" name="mascota-type" class="form-unide">
-                                <option selected>Tipo de mascota<option>
-                                <option value="1">Perro</option>
-                                <option value="2">Gato</option>
-                                <option value="3">Conejo</option>
-                                <option value="4">Otro</option>
-                            </select>
-                        </div>
-                        <div class="form-group mb-2">
-                            <select id="mascota-raza" name="mascota-raza" class="form-unide">
-                                <option selected>Raza<option>
-                                <option value="1">Labrador</option>
-                                <option value="2">Poodle</option>
-                                <option value="3">Show show</option>
-                                <option value="4">Pincher</option>
-                            </select>
-                        </div>
-                        <div class="form-group mb-2">
-                            <select id="mascota-size" name="mascota-size" class="form-unide">
-                                <option selected>Tamano<option>
-                                <option value="1">Pequeno</option>
-                                <option value="2">Mediano-Pequeno</option>
-                                <option value="3">Mediano-Grande</option>
-                                <option value="4">Grande</option>
-                            </select>
-                        </div>
-                        <div class="form-group mb-2">
-                            <select id="mascota-color" name="mascota-color" class="form-unide">
-                                <option selected>Color de mascota<option>
-                                <option value="1">Amarillo</option>
-                                <option value="2">Negro</option>
-                                <option value="3">Blanco</option>
-                                <option value="4">Otro</option>
-                            </select>
-                        </div>
+                    <h2 class="title-main text-left text-black-50 text-primary text-uppercase fs-4 fw-bold">
+                        Filtrar por:
+                    </h2>
+                    <div class="form-floating form-group mb-3">
+                        <select id="mascota-type" name="mascota-type" class="form-unide form-select">
+                            <option selected>Aperture el menu<option>
+                            <option value="1">Perro</option>
+                            <option value="2">Gato</option>
+                            <option value="3">Conejo</option>
+                            <option value="4">Otro</option>
+                        </select>
+                        <label for="mascota-type">Seleccione el tipo de mascota</label>
+                    </div>
+                    <div class="form-floating form-group mb-3">
+                        <select id="mascota-raza" name="mascota-raza" class="form-unide form-select">
+                            <option selected>Aperture el menu<option>
+                            <option value="1">Labrador</option>
+                            <option value="2">Poodle</option>
+                            <option value="3">Show show</option>
+                            <option value="4">Pincher</option>
+                        </select>
+                        <label for="mascota-raza">Seleccione la raza de la mascota</label>
+                    </div>
+                    <div class="form-floating form-group mb-3">
+                        <select id="mascota-size" name="mascota-size" class="form-unide form-select">
+                            <option selected>Aperture el menu<option>
+                            <option value="1">Pequeno</option>
+                            <option value="2">Mediano-Pequeno</option>
+                            <option value="3">Mediano-Grande</option>
+                            <option value="4">Grande</option>
+                        </select>
+                        <label for="mascota-raza">Seleccione el tamano de la mascota</label>
                     </div>
                 </div>
                 <div class="col-9">
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <div class="card col-4 px-2 border-0 mb-4">
+                            <div class="card-header bg-primary-color">
+                                <h3 class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+                                    <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre"/>
+                                    Lili
+                                </h3>
+                            </div>
+                            <div class="box-img-post position-relative">
+                                <img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+                                <span class="tag-green tag position-absolute">Encontrado</span>
+                            </div>
+                            <div class="card-header bg-primary-color-light">
+                                <small class="text-white d-flex justify-content-between">
+                                    <span class="date">Fecha 10-12-2020</span>
+                                    <span class="user">
+                                        <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre-icon"/>
+                                        <strong>Mary</strong> lo encontro
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="card-body border-end border-start">
+                                <h5 class="card-title title-main text-left text-black fs-6">Raza: Labrador</h5>
+                                <span class="card-subtitle mb-3 d-block"><strong>Localización:</strong> La isla, Medellin</span>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a class="btn btn-primary w-100 text-uppercase p-3 fs-4">Mirame!</a>
+                            </div>
                         </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
+                        <div class="card col-4 px-2 border-0 mb-4">
+                            <div class="card-header bg-primary-color">
+                                <h3 class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+                                    <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre"/>
+                                    Lili
+                                </h3>
+                            </div>
+                            <div class="box-img-post position-relative">
+                                <img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+                                <span class="tag-green tag position-absolute">Encontrado</span>
+                            </div>
+                            <div class="card-header bg-primary-color-light">
+                                <small class="text-white d-flex justify-content-between">
+                                    <span class="date">Fecha 10-12-2020</span>
+                                    <span class="user">
+                                        <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre-icon"/>
+                                        <strong>Mary</strong> lo encontro
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="card-body border-end border-start">
+                                <h5 class="card-title title-main text-left text-black fs-6">Raza: Labrador</h5>
+                                <span class="card-subtitle mb-3 d-block"><strong>Localización:</strong> La isla, Medellin</span>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a class="btn btn-primary w-100 text-uppercase p-3 fs-4">Mirame!</a>
+                            </div>
                         </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        <div class="card col-4 px-2 border-0 mb-4">
+                            <div class="card-header bg-primary-color">
+                                <h3 class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+                                    <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre"/>
+                                    Lili
+                                </h3>
+                            </div>
+                            <div class="box-img-post position-relative">
+                                <img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+                                <span class="tag-green tag position-absolute">Encontrado</span>
+                            </div>
+                            <div class="card-header bg-primary-color-light">
+                                <small class="text-white d-flex justify-content-between">
+                                    <span class="date">Fecha 10-12-2020</span>
+                                    <span class="user">
+                                        <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre-icon"/>
+                                        <strong>Mary</strong> lo encontro
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="card-body border-end border-start">
+                                <h5 class="card-title title-main text-left text-black fs-6">Raza: Labrador</h5>
+                                <span class="card-subtitle mb-3 d-block"><strong>Localización:</strong> La isla, Medellin</span>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a class="btn btn-primary w-100 text-uppercase p-3 fs-4">Mirame!</a>
+                            </div>
                         </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
+                        <div class="card col-4 px-2 border-0 mb-4">
+                            <div class="card-header bg-primary-color">
+                                <h3 class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+                                    <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre"/>
+                                    Lili
+                                </h3>
+                            </div>
+                            <div class="box-img-post position-relative">
+                                <img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+                                <span class="tag-green tag position-absolute">Encontrado</span>
+                            </div>
+                            <div class="card-header bg-primary-color-light">
+                                <small class="text-white d-flex justify-content-between">
+                                    <span class="date">Fecha 10-12-2020</span>
+                                    <span class="user">
+                                        <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre-icon"/>
+                                        <strong>Mary</strong> lo encontro
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="card-body border-end border-start">
+                                <h5 class="card-title title-main text-left text-black fs-6">Raza: Labrador</h5>
+                                <span class="card-subtitle mb-3 d-block"><strong>Localización:</strong> La isla, Medellin</span>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a class="btn btn-primary w-100 text-uppercase p-3 fs-4">Mirame!</a>
+                            </div>
                         </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
+                        <div class="card col-4 px-2 border-0 mb-4">
+                            <div class="card-header bg-primary-color">
+                                <h3 class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+                                    <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre"/>
+                                    Lili
+                                </h3>
+                            </div>
+                            <div class="box-img-post position-relative">
+                                <img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+                                <span class="tag-green tag position-absolute">Encontrado</span>
+                            </div>
+                            <div class="card-header bg-primary-color-light">
+                                <small class="text-white d-flex justify-content-between">
+                                    <span class="date">Fecha 10-12-2020</span>
+                                    <span class="user">
+                                        <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre-icon"/>
+                                        <strong>Mary</strong> lo encontro
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="card-body border-end border-start">
+                                <h5 class="card-title title-main text-left text-black fs-6">Raza: Labrador</h5>
+                                <span class="card-subtitle mb-3 d-block"><strong>Localización:</strong> La isla, Medellin</span>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a class="btn btn-primary w-100 text-uppercase p-3 fs-4">Mirame!</a>
+                            </div>
                         </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
+                        <div class="card col-4 px-2 border-0 mb-4">
+                            <div class="card-header bg-primary-color">
+                                <h3 class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+                                    <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre"/>
+                                    Lili
+                                </h3>
+                            </div>
+                            <div class="box-img-post position-relative">
+                                <img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+                                <span class="tag-green tag position-absolute">Encontrado</span>
+                            </div>
+                            <div class="card-header bg-primary-color-light">
+                                <small class="text-white d-flex justify-content-between">
+                                    <span class="date">Fecha 10-12-2020</span>
+                                    <span class="user">
+                                        <img srcset="../img/h_c_s.svg" alt="huellita" class="img-responsive img-pre-icon"/>
+                                        <strong>Mary</strong> lo encontro
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="card-body border-end border-start">
+                                <h5 class="card-title title-main text-left text-black fs-6">Raza: Labrador</h5>
+                                <span class="card-subtitle mb-3 d-block"><strong>Localización:</strong> La isla, Medellin</span>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a class="btn btn-primary w-100 text-uppercase p-3 fs-4">Mirame!</a>
+                            </div>
                         </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
-                    <article class="card card-pets col-4 mb-2">
-                        <div class="name-pets">
-                            <h2 class="name-pets-h2">Lili</h2>
-                        </div>
-                        <div class="photo-pets" style="background-image: url('')"></div>
-                        <div class="date-state-pets encontrado">
-                            Encontrado 10-12-2020
-                        </div>
-                        <div class="box-extract-pets">
-                            <span class="raza mb-2" style="font-weight: bold;">Labrador</span>
-                            <span class="ubication mb-2">La isla, Medellin</span>
-                            <p class="" style="margin: 0;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus maxime, tempore reprehenderit placeat deleniti sunt hic fugiat reiciendis illo iure libero ipsa nam molestias nemo inventore enim, architecto perspiciatis officiis.</p>
-                        </div>
-                        <a href="#">Ver perfil</a>
-                    </article>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-</body>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </body>
 </html>

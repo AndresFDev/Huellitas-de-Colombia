@@ -1,89 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Editar Anuncio</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                outline: 0;
-                font-size: 100%;
-                vertical-align: baseline;
-                background: transparent;
-                overflow-x: hidden;
-            }
-            .title-l1 {
-                text-align: center;
-            }
-            .form-horizontal {
-                display: flex;
-                justify-content: space-between;
-                align-items: start;
-            }
-            .mb-2 {
-                margin-bottom: 15px;
-            }
-            .bg-img {
-                background: #987bc4;
-                min-height: 70vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .bg-form {
-                max-width: 1200px;
-                width: 100%;
-                padding: 20px;
-                background-color: #6fdbd0e3;
-            }    
-            .form-group.radio-button {
-                display: flex;
-            }
-            .col-4 {
-                flex: 0 0 auto;
-                width: 33.33333%;
-                padding: 0 15px;
-            }
-            .form-group input[type="text"],
-            .form-group input[type="tel"],
-            .form-group select,
-            .form-group textarea {
-                max-width: 300px;
-                width: 100%;
-            }
-            #header-banner {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 30vh;
-                background: #276f80;
-                color: #fff;
-            }
-            #box-form iframe {
-                width: 100%;
-                min-height: 450px;
-                overflow: hidden;
-                border: none;
-            }
-        </style>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link href="../css/main.css" rel="stylesheet">
+        <link href="../css/newpost.css" rel="stylesheet">
+        <link href="../css/font.css" rel="stylesheet">
+
+        <title>Editar anuncio</title>
     </head>
     <body>
-        <header id="header-banner">
-            <h1>EDITAR ANUNCIO</h1>
-        </header>
-        <main id="new-post">
-            <div id="box-main" class="bg-img">
-                <div id="box-form" class="bg-form">
-                    <div id="header" class="title-n1">
-                        <h1 class="title-l1">Informacion de la mascota</h1>
-                    </div>
-                    <iframe title="iframeForm" src="../components/formularios/entradaForm.html"></iframe>
+        <header id="header-new-post" class="header banner-header d-flex align-items-center justify-content-center">
+            <div class="container z-9">
+                <div class="row">
+                    <h1 class="title-main text-left text-white text-primary text-uppercase fs-1 fw-bold">
+                        Editar anuncio
+                    </h1>
                 </div>
             </div>
-        </main>
+        </header>
+
+        <iframe class="embed-form" title="iframeForm" src="../components/formularios/entradaForm.html"></iframe>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
 </html>
