@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
 }
 
-button,body,legend,input,fieldset {
+button,body,legend,input,fieldset,a {
     font-family: "Montserrat", sans-serif !important;
 }
 
@@ -16,33 +16,273 @@ button,body,legend,input,fieldset {
     font-size:xx-large;
 }
 
-.dashed {
-    border-style: dashed!important;
+.left-medium-head {
+    float: center!important;
+    overflow:hidden!important;
+    position: absolute;
+    top: 35%;
+    left: 0%;
+    transform: translate(-0%, -50%);
+    max-width: 90vh;
+    width: 100%;
+}
+
+.nav-w {
+    color: white !important;
+}
+
+.border-green {
     border-color:#8ABB2B !important;
-    border-radius: 25px;
+    border-radius: 15px;
+}
+
+.border-brown {
+    border-color:#C07E4E !important;
+    border-radius: 15px;
+}
+
+.border-black {
+    border-color: black !important;
+    border-radius: 15px;
+}
+
+.btn-fill {
+    width: 100% !important;
+}
+
+.fill {
+    height: 100% !important;
+}
+
+.no-marging {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .center {
-    width:100%;
-    overflow:hidden;
-    text-align:center!important;
+    float: center!important;
+    overflow:hidden!important;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.bg-none {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.bg-red {
+    background-color: red !important;
+}
+
+.bg-green {
+    background-color:#8ABB2B;
+}
+
+.bg-brown {
+    background-color:#C07E4E;
+}
+
+.bg-head {
+    background-image: url(../img/bg_p.jpg); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: 100%; 
+    height:70vh;
+}
+
+.entradas-center {
+    float: center!important;
+    overflow:hidden!important;
+    text-align:center !important;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+
+.dashed {
+    border-style: dashed !important;
+    border-width: 2px;
+    border-radius: 15px;
+}
+
+.huella{
+    border: black 10px solid;
+    border-image-source: url(../img/h_c_2.svg);
+    border-image-slice: 85;
+    border-image-repeat: repeat;
+}
+
+.hover {
+    background-color: #c07d4ea6 !important;
+    color:white !important;
+}
+
+a.black {
+    color: black !important;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+option:hover{
+    background-color:#c07d4e96!important;
+    color:#fff!important;
+}
+
+.hover-none:hover{
+    background-color:transparent!important;
+}
+
+.hover-green:hover{
+    color:#fff!important;
+    background-color:#8ABB2B!important;
+}
+
+.hover-rs:hover{
+    color:#C07E4E!important;
+    background-color: none!important;
+}
+
+.hover-brown:hover{
+    color:#fff!important;
+    background-color:#c07d4e96!important;
+}
+
+.black{
+    color: black !important;
+}
+
+.green{
+    background-color: #8ABB2B!important;
+}
+
+.brown{
+    color: #C07E4E !important;
+}
+
+.navbar-brown {
+    background-color: #C07E4E!important;
 }
 
 .left {
-    width:100%;
-    overflow:hidden;
-    text-align:left!important;
+    float: left;
+    text-align:left !important;
 }
 
 .right {
-    width:100%;
-    overflow:hidden;
-    text-align:right!important;
+    float: right;
+    padding: 10px;
 }
 
-.content {
-    margin: 1% auto;;
+.img-container {
+    /* position: relative; */
+    width:300px;
+    height:300px;
+    overflow:hidden;
+    border-radius: 50%;
 }
+
+.img-container img{
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+.img-container-nav {
+    position: relative;
+    width:30px;
+    height:30px;
+    overflow:hidden;
+    border-radius: 50%;
+}
+
+.img-container-nav img{
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+.img-container-profile-v {
+    /* position: relative; */
+    width:300px;
+    height:300px;
+    overflow:hidden;
+    border-radius: 50%;
+}
+
+.img-container-profile-v img {
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+.img-container-card {
+    /* position: relative; */
+    width:235px;
+    height:235px;
+    overflow:hidden;
+    border-radius: 50%;
+}
+
+.img-container-card img {
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+.img-container-card-v {
+    position: relative;
+    width:235px;
+    height:235px;
+    overflow:hidden;
+    border-radius: 50%;
+}
+
+.img-container-card-v img {
+    width:100%;
+    height:auto;
+    /* vertical-align: auto; */
+}
+
+.img-container-card-h {
+    display: inline-block;
+    position: relative;
+    width:235px;
+    height:235px;
+    overflow:hidden;
+    border-radius:50%;
+}
+
+.img-container-card-h img {
+    width:auto;
+    height:100%;
+    margin-left: -50px;
+    /* vertical-align: auto; */
+}
+
+
+/* #filtro option {
+    color:grey!important;
+    background-color:lightgray!important;
+}
+
+option:hover {
+    color:#000!important;
+    background:#c07d4e96!important;
+}
+
+select:hover {
+    color:#fff!important;
+    background-color:#c07d4e96!important;
+} */
 
 @font-face {
     font-family: 'Montserrat';
@@ -73,3 +313,35 @@ button,body,legend,input,fieldset {
     font-weight: 400;
     src: local('Eacologica Regular'), local('Eacologica-Regular'), url(../fonts/eacologica-round-slab-ffp.woff2) format('woff2');
 }
+
+#navbar {
+    overflow: hidden;
+    background-color: none;
+  }
+  
+  /* Navbar links */
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  /* Page content */
+  .content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 60px;
+  }
