@@ -96,6 +96,14 @@ button,body,legend,input,fieldset,a {
     height:70vh;
 }
 
+.bg-main {
+    background-image: url(../img/separador_br_v.svg); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: 8%; 
+    background-position: 100%;
+}
+
 .entradas-center {
     float: center!important;
     overflow:hidden!important;
@@ -104,19 +112,6 @@ button,body,legend,input,fieldset,a {
     top: 0%;
     left: 50%;
     transform: translate(-50%, -0%);
-}
-
-.dashed {
-    border-style: dashed !important;
-    border-width: 2px;
-    border-radius: 15px;
-}
-
-.huella{
-    border: black 10px solid;
-    border-image-source: url(../img/h_c_2.svg);
-    border-image-slice: 85;
-    border-image-repeat: repeat;
 }
 
 .hover {
@@ -139,16 +134,6 @@ option:hover{
 
 .hover-none:hover{
     background-color:transparent!important;
-}
-
-.hover-green:hover{
-    color:#fff!important;
-    background-color:#8ABB2B!important;
-}
-
-.hover-rs:hover{
-    color:#C07E4E!important;
-    background-color: none!important;
 }
 
 .hover-brown:hover{
@@ -196,34 +181,6 @@ option:hover{
     vertical-align: auto;
 }
 
-.img-container-nav {
-    position: relative;
-    width:30px;
-    height:30px;
-    overflow:hidden;
-    border-radius: 50%;
-}
-
-.img-container-nav img{
-    width:100%;
-    height:auto;
-    vertical-align: auto;
-}
-
-.img-container-profile-v {
-    /* position: relative; */
-    width:300px;
-    height:300px;
-    overflow:hidden;
-    border-radius: 50%;
-}
-
-.img-container-profile-v img {
-    width:100%;
-    height:auto;
-    vertical-align: auto;
-}
-
 .img-container-card {
     /* position: relative; */
     width:235px;
@@ -236,36 +193,6 @@ option:hover{
     width:100%;
     height:auto;
     vertical-align: auto;
-}
-
-.img-container-card-v {
-    position: relative;
-    width:235px;
-    height:235px;
-    overflow:hidden;
-    border-radius: 50%;
-}
-
-.img-container-card-v img {
-    width:100%;
-    height:auto;
-    /* vertical-align: auto; */
-}
-
-.img-container-card-h {
-    display: inline-block;
-    position: relative;
-    width:235px;
-    height:235px;
-    overflow:hidden;
-    border-radius:50%;
-}
-
-.img-container-card-h img {
-    width:auto;
-    height:100%;
-    margin-left: -50px;
-    /* vertical-align: auto; */
 }
 
 
@@ -313,35 +240,3 @@ select:hover {
     font-weight: 400;
     src: local('Eacologica Regular'), local('Eacologica-Regular'), url(../fonts/eacologica-round-slab-ffp.woff2) format('woff2');
 }
-
-#navbar {
-    overflow: hidden;
-    background-color: none;
-  }
-  
-  /* Navbar links */
-  #navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-  }
-  
-  /* Page content */
-  .content {
-    padding: 16px;
-  }
-  
-  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-  .sticky + .content {
-    padding-top: 60px;
-  }
