@@ -14,6 +14,10 @@
     background-color: #C07E4E;
 }
 
+.bg-brown-dark {
+    background-color: #74462b;
+}
+
 .no-marging {
     margin: 0 !important;
     padding: 0 !important;
@@ -55,15 +59,15 @@ nav .navbar-nav li a{
 }
 
 nav .navbar-nav li a:hover{
-    color: #8ABB2B !important;
+    color: #74462b !important;
 }
 
 nav .navbar-nav li a:active{
-    color: #8ABB2B !important;
+    color: #74462b !important;
 }
 
 .dropdown-toggle[aria-expanded="true"] {
-    color:#8ABB2B  !important;
+    color:#74462b  !important;
 }
 
 .dropdown-menu {

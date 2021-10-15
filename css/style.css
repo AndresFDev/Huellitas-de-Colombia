@@ -104,6 +104,14 @@ button,body,legend,input,fieldset,a {
     background-position: 100%;
 }
 
+.bg-signin {
+    background-image: url(../img/bg_signin.jpg); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: 100%; 
+    background-position: 100%;
+}
+
 .entradas-center {
     float: center!important;
     overflow:hidden!important;

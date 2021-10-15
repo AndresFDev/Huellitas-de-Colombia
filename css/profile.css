@@ -116,3 +116,8 @@ transform: translate(15%, -0%);
     border-image-slice: 92;
     border-image-repeat: repeat;
 }
+
+.hover-brown:hover{
+    color:#fff!important;
+    background-color:#74462b!important;
+}
