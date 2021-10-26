@@ -1,0 +1,38 @@
+#signup {
+    overflow: hidden;
+    background-color: none;
+    color: #fff;
+    margin: 0;
+    padding: 10;
+    max-height: 1090px;
+    max-width: 460px;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0px 0px 25px var(--primary);
+    border-radius: 15px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color:white;
+}
+
+a:hover {
+    color:var(--primary-dark);
+}
+
+.bg-brown{
+    background-color: #c07d4e73;
+    color: var(--primary-dark);
+}
+
+.border-br{
+    border: #C07E4E 1px solid;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
