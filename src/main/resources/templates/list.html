@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	<section th:replace="layout/banner :: banner"></section>
+	<main>
+		<section>
+			<div class="container-fluid mt-5 pt-5">
+				<div class="row">
+					<div class="col-3">
+						<h2
+							class="title-main text-left text-black-50 text-primary text-uppercase fs-4 fw-bold">
+							Filtrar por:</h2>
+						<form id="form"	th:action="@{/post/filter}" th:object="${post}" method="post" enctype="multipart/form-data">
+							<div class="form-floating form-group mb-3">
+								<select id="mascota-status" name="petStatus"
+									class="form-unide form-select">
+									<option selected value="0">Aperture el menu</option>
+									<option th:if="${petsStatusID == null}"
+										th:each="status : ${petsStatus}" th:value="${status.id}"
+										th:text="${status.name}"></option>
+								</select> <label for="mascota-type">Seleccione el status de mascota</label>
+							</div>
+							<div class="form-floating form-group mb-3">
+								<select id="mascota-type" name="petType"
+									class="form-unide form-select">
+									<option selected value="0">Aperture el menu</option>
+									<option th:if="${petsTypeID == null}"
+										th:each="type : ${petsType}" th:value="${type.id}"
+										th:text="${type.name}"></option>
+								</select> <label for="mascota-type">Seleccione el tipo de mascota</label>
+							</div>
+							<div class="form-floating form-group mb-3">
+								<select id="mascota-raza" name="petBreed"
+									class="form-unide form-select">
+									<option selected value="0">Aperture el menu</option>
+									<option th:if="${petsBreedID == null}"
+										th:each="breed : ${petsBreed}" th:value="${breed.id}"
+										th:text="${breed.name}"></option>
+								</select> <label for="mascota-raza">Seleccione la raza de la
+									mascota</label>
+							</div>
+							<div class="form-floating form-group mb-3">
+								<select id="mascota-size" name="petSize"
+									class="form-unide form-select">
+									<option selected value="0">Aperture el menu</option>
+									<option th:if="${petsSizeID == null}"
+										th:each="size : ${petsSize}" th:value="${size.id}"
+										th:text="${size.name}"></option>
+								</select> <label for="mascota-raza">Seleccione el tamano de la
+									mascota</label>
+							</div>
+							<div class="form-group mb-2 mt-2">
+								<input type="submit" class="btn btn-primary btn-lg w-100 mt-3"
+									value="Filtrar">
+							</div>
+						</form>
+					</div>
+					<div class="col-9">
+						<div class="d-flex justify-content-between flex-wrap">
+							<div class="card col-4 px-2 border-0 mb-4"
+								th:each="post : ${posts}">
+								<div class="card-header bg-primary-color">
+									<h3
+										class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+										<img srcset="../img/h_c_s.svg" alt="huellita"
+											class="img-responsive img-pre" /> <span
+											th:text="${post.pet.name}"></span>
+									</h3>
+								</div>
+								<div class="box-img-post position-relative">
+									<img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+									<span th:if="${post.pet.petStatus.id == 1}" class="tag-red tag position-absolute" th:text="${post.pet.petStatus.name}">Encontrado</span>
+									<span th:if="${post.pet.petStatus.id == 2}" class="tag-green tag position-absolute" th:text="${post.pet.petStatus.name}">Encontrado</span>
+								</div>
+								<div class="card-header bg-primary-color-light">
+									<small class="text-white d-flex justify-content-between">
+										<span class="date">Fecha <span
+											th:text="${post.createIn}"></span>
+									</span> <span class="user"> <img srcset="../img/h_c_s.svg"
+											alt="huellita" class="img-responsive img-pre-icon" /> <strong
+											th:text="${post.user.name}"></strong> 
+											lo a <span th:text="${post.pet.petStatus.name}"></span>
+									</span>
+									</small>
+								</div>
+								<div class="card-body border-end border-start">
+									<h5 class="card-title title-main text-left text-black fs-6">
+										Raza: <span th:text="${post.pet.petBreed.name}"></span>
+									</h5>
+									<span class="card-subtitle mb-3 d-block"><strong>Localización:</strong>
+										<span th:text="${post.direction}"></span></span>
+									<p class="card-text"
+										th:text="${#strings.abbreviate(post.pet.description,150)}"></p>
+								</div>
+								<div class="card-footer p-0">
+									<a class="btn btn-primary w-100 text-uppercase p-3 fs-4" 
+									th:href="@{/pet/view/}+${post.pet.id}">Mirame!</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

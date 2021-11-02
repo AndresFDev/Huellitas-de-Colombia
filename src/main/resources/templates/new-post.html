@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	<main>		
+		<section th:replace="layout/banner :: banner"></section>
+		<section>
+		<div class="container">
+			<div class="row">			
+				<form id="form" class="form-horizontal mt-5 pt-5 pb-5"
+					th:action="@{/post/save}" th:object="${post}" method="post"
+					enctype="multipart/form-data">
+					<div class="container">
+						<div class="row">
+							<div class="col-4">
+								<h2 class="mb-4 fs-5 font-eacologica">Tu mascota esta?</h2>
+			
+								<div class="form-floating form-group mb-3">
+									<select id="mascota-type" class="form-unide form-select"
+										name="petStatus" required="required">
+										<option selected>Aperture el menu</option>
+										<option th:if="${petsStatusID == null}" th:each="status : ${petsStatus}" th:value="${status.id}"
+											th:text="${status.name}"></option>
+										<option th:if="${petsStatusID}" th:each="status : ${petsStatus}" th:value="${status.id}"
+											th:selected="${petsStatusID eq status.id}"
+											th:text="${status.name}"></option>
+									</select> <label for="mascota-status">Seleccione el status de la
+										mascota</label>
+								</div>
+								<div class="form-floating form-group mb-3">
+									<input type="text" id="mascota-name" placeholder="Lacky"
+										class="form-unide form-control"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{pet.name}" required="required"> <label
+										for="mascota-name">Nombre de la Mascota</label>
+								</div>
+								<div class="form-floating form-group mb-3">
+									<textarea id="mascota-description" class="form-unide form-control"
+										rows="4" placeholder="Breve descripcion de la mascota"
+										style="height: 150px"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{pet.description}" required="required"></textarea>
+									<label for="mascota-description">Breve descripcion de la
+										mascota</label>
+								</div>
+								<div class="form-floating form-group mb-3">
+									<select id="mascota-type" class="form-unide form-select"
+										name="petType" required="required">
+										<option selected>Aperture el menu</option>
+										<option th:if="${petsTypeID == null}" th:each="type : ${petsType}" th:value="${type.id}"
+											th:text="${type.name}"></option>
+										<option th:if="${petsTypeID}" th:each="type : ${petsType}" th:value="${type.id}"
+											th:selected="${petsTypeID eq type.id}"
+											th:text="${type.name}"></option>
+									</select> <label for="mascota-type">Seleccione el tipo de mascota</label>
+								</div>
+								<div class="form-floating form-group mb-3">
+									<select id="mascota-raza" name="petBreed"
+										class="form-unide form-select" required="required">
+										<option selected>Aperture el menu</option>
+										<option th:if="${petsBreedID == null}" th:each="breed : ${petsBreed}" th:value="${breed.id}"
+											th:text="${breed.name}"></option>
+										<option th:if="${petsBreedID}" th:each="breed : ${petsBreed}" th:value="${breed.id}"
+											th:selected="${petsBreedID eq breed.id}"
+											th:text="${breed.name}"></option>
+									</select> <label for="mascota-raza">Seleccione la raza de la
+										mascota</label>
+								</div>
+							</div>
+							<div class="col-4">
+			
+								<div class="form-floating form-group mb-3">
+									<input type="text" id="mascota-year" placeholder="Edad Aproximada"
+										class="form-unide form-control"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{pet.years}" required="required"> <label
+										for="mascota-year">Edad Aproximada</label>
+								</div>
+								<div class="form-floating form-group mb-3">
+									<select id="mascota-size" name="petSize"
+										class="form-unide form-select" required="required">
+										<option selected>Aperture el menu</option>
+										<option th:if="${petsSizeID == null}" th:each="size : ${petsSize}" th:value="${size.id}"
+											th:text="${size.name}"></option>
+										<option th:if="${petsSizeID}" th:each="size : ${petsSize}" th:value="${size.id}"
+											th:selected="${petsSizeID eq size.id}"
+											th:text="${size.name}"></option>
+									</select> <label for="mascota-raza">Seleccione el tamano de la
+										mascota</label>
+								</div>
+								<div class="form-group mb-3">
+									<label for="mascota-color mb-2">Seleccione el color de la
+										mascota</label> <input type="color"
+										class="form-control form-control-color mt-2" id="mascota-color"
+										title="Seleccione el color de la mascota"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{pet.color}" required="required">
+								</div>
+								<div class="form-floating form-group mb-3">
+									<input type="file" id="mascota-foto" name="file"
+										class="form-unide form-control pt-5"
+										placeholder="Seleccione un archivo" style="height: 90px;"
+										required="required"> <label for="mascota-raza">Seleccione
+										la foto de la mascota</label>
+								</div>
+			
+								<h2 class="mb-4 fs-5 font-eacologica">Ultima vez visto</h2>
+			
+								<div class="form-floating form-group mb-3">
+									<input type="text" id="mascota-direction" placeholder="Direccion"
+										class="form-unide form-control"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{direction}" required="required"> <label
+										for="mascota-direction">Ingrese la Direccion donde lo
+										encontro</label>
+								</div>
+								<div class="form-floating form-group mb-2">
+									<input type="date" id="mascota-date"
+										placeholder="Fecha de desaparicion"
+										class="form-unide form-control"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{createIn}" required="required"> <label
+										for="mascota-date">Fecha de desaparicion: </label>
+								</div>
+							</div>
+							<div class="col-4">
+								<h2 class="mb-4 fs-5 font-eacologica">Datos de contacto:</h2>
+								<div class="form-floating form-group mb-3">
+									<input type="tel" id="mascota-nameC"
+										class="form-unide form-control" placeholder="Nombre de contacto"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{name}" required="required"> <label
+										for="mascota-nameC">Nombre de contacto</label>
+								</div>
+								<div class="form-floating form-group mb-2">
+									<input type="tel" id="mascota-telf"
+										class="form-unide form-control"
+										placeholder="Telefono de contacto"
+										th:errorClass="'form-control alert-danger is-invalid'"
+										th:field="*{telefone_number}" required="required"> <label
+										for="mascota-telf">Telefono de contacto</label>
+								</div>
+								<div class="form-group mb-2 mt-2">
+									<input type="submit" class="btn btn-primary btn-lg w-100 mt-3"
+										value="Publicar">
+								</div>
+								<input type="hidden" th:field="*{id}" />
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	</main>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

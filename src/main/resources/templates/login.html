@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container center content round col-sm-4">
+		<div class="d-flex justify-content-center align-items-center min-vh-100">
+			<div class="box-card border-success border rounded">
+				<div class="card border-0 w-100">
+					<div class="card-header border-0">
+						<h5 class="card-title text-center text-uppercase">Iniciar sesion</h5>
+					</div>
+					<div class="card-body border-0">
+						<form th:action="@{/login}" method="post">
+							<div class="col-auto mb-3">
+								<input class="form-control" type="text" name="username"
+									id="username" placeholder="Nombre de usuario" maxlength="100"
+									autofocus required>
+							</div>
+							<div class="col-auto mb-3">
+								<input class="form-control" type="password" name="password"
+									id="password" placeholder="Contraseña" maxlength="80" required>
+							</div>
+		
+							<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+								<input class="btn btn-lg btn-outline-success me-md-2 btn-block text-uppercase w-100"
+									type="submit" value="Ingresar">
+							</div>
+						</form>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout/layout :: head">
+	</head>
+	<body>
+		
+		<header th:replace="layout/layout :: header"></header>
+		
+		
+		<div class="container center content round col-sm-4">
+			<div class="d-flex justify-content-center align-items-center min-vh-100">
+				<div class="box-card border-danger border rounded">
+					<div class="card border-0 w-100">
+						<div class="card-header border-0">
+							<h5 class="card-title text-center">Accesos denegado</h5>
+						</div>
+						<div class="card-body border-0">
+							<p>Lo sentimos <span class="text-uppercase badge bg-danger bg-gradient text-wrap" th:text="${#authentication.name}"></span> no tienes autorizacion para visualizar este contenido</p>
+							<a class="btn btn-outline-secondary" th:href="@{/index}">Volver a inicio</a>
+						</div>
+					</div>		
+				</div>
+			</div>
+		</div>
+		
+		<footer th:replace="layout/layout :: footer"></footer>
+	</body>	
+</html>

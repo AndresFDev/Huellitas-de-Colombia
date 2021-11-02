@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head th:replace="layout/layout :: head">
+	</head>
+	<body>
+		
+		<section th:fragment="banner" id="header-new-post" class="header banner-header d-flex align-items-center justify-content-center">
+            <div class="container z-9">
+                <div class="row">
+                    <h1 class="title-main text-left text-white text-primary text-uppercase fs-1 fw-bold" th:text="${titleBanner}"></h1>
+                </div>
+            </div>
+		</section>
+		
+	</body>	
+</html>
