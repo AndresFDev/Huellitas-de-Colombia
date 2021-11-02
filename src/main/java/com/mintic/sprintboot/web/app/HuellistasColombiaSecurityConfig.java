@@ -27,7 +27,7 @@ public class HuellistasColombiaSecurityConfig extends WebSecurityConfigurerAdapt
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/images/**", "/register").permitAll()
+		http.authorizeRequests().antMatchers("/", "/post/list/**", "/post/view/**", "/post/filter/**", "/fonts/**", "/img/**", "/uploads/**", "/css/**", "/js/**", "/images/**", "/profile/register").permitAll()
 		/*.antMatchers("/register").hasAuthority("ADMIN")*/
 		.anyRequest().authenticated()
 		.and()

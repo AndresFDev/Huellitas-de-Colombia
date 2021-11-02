@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	<main>
+		<section th:replace="layout/banner :: banner"></section>
+		<section th:replace="layout/layout :: alerts"></section>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="container center content round col-sm-4">
+						<div class="card mb-3">
+							<div class="row g-0">
+								<div class="col-md-4">
+									<div class="position-relative" style="background-color: #e8b6a2;">
+										<img th:src="@{/img/user.png}" class="card-img rounded-0" alt="...">
+										<span th:if="${!user.enable}" class="tag-red tag position-absolute" th:text="${user.name}"></span>
+										<span th:if="${user.enable}" class="tag-green tag position-absolute" th:text="${user.name}"></span>
+									</div>
+								</div>
+								<div class="col-md-8">
+									<div class="d-flex flex-column rh">
+										<div class="card-header bg-primary-color">
+											<h3
+												class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
+												<img src="/img/h_c_s.svg" alt="huellita"
+													class="img-responsive img-pre" /> <span
+													th:text="${user.name}+' '+${user.lastname}"></span>
+											</h3>
+										</div>
+										<div class="card-body text-start">
+											<span class="d-block card-title title-main text-left text-black fs-6">
+												<strong>Nombre: </strong><span class="text-uppercase" th:text="${user.name}"></span>
+											</span>
+											<span class="d-block card-title title-main text-left text-black fs-6">
+												<strong>Apellido: </strong><span class="text-uppercase" th:text="${user.lastname}"></span>
+											</span>
+											<span class="d-block card-title title-main text-left text-black fs-6">
+												<strong>CC: </strong><span class="text-uppercase" th:text="${user.cedula_identy}"></span>
+											</span>
+											<span class="d-block card-title title-main text-left text-black fs-6">
+												<strong>Email: </strong><span class="text-uppercase" th:text="${user.email}"></span>
+											</span>
+											<span class="d-block card-title title-main text-left text-black fs-6">
+												<strong>Telefono: </strong><span class="text-uppercase" th:text="${user.telefone_number}"></span>
+											</span>
+											<span class="d-block card-title title-main text-left text-black fs-6">
+												<strong>Direccion: </strong><span class="text-uppercase" th:text="${user.direction}"></span>
+											</span>
+										</div>
+										<div class="card-footer p-0">
+											<a class="btn btn-primary w-100 text-uppercase p-3 fs-4 rounded-0 rounded-end" 
+											th:href="@{/profile/edit/}+${user.id}">Editar</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

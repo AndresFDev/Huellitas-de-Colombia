@@ -7,11 +7,71 @@
 
 	<header th:replace="layout/layout :: header"></header>
 	<main>
+		<section th:replace="layout/layout :: alerts"></section>
 		<section>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
-					<div class="container center content round col-sm-4">
-						<h1>Hola Huellitas Colombia</h1>
+					<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+					  <div class="carousel-indicators">
+					    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+					    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+					    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 0"></button>
+					  </div>
+					  <div class="carousel-inner">
+					    <div class="carousel-item active" data-bs-interval="10000">
+					      <img src="/img/carousel/sl1.jpg" class="d-block w-100" alt="...">
+					      <div class="carousel-caption d-none d-md-block">
+					        <h5>1 de cada tres mascotas se pierden en algún momento de su vida</h5>
+					        <p>Por ello debemos tomas las precausiones necesarias para limitar es probabilidades!</p>
+					      </div>
+					    </div>
+					    <div class="carousel-item" data-bs-interval="10000">
+					      <img src="/img/carousel/sl2.jpg" class="d-block w-100" alt="...">
+					      <div class="carousel-caption d-none d-md-block">
+					        <h5>Menos del 2% de los gatos perdidos y sólo del 15 al 20% de los perros perdidos logran volver con sus familias</h5>
+					        <p>según el Consejo Nacional de Estudio y Política de la Población de Mascotas</p>
+					      </div>
+					    </div>
+					    <div class="carousel-item" data-bs-interval="10000">
+					      <img src="/img/carousel/sl3.jpg" class="d-block w-100" alt="...">
+					      <div class="carousel-caption d-none d-md-block">
+					        <h5>La mayoría de las mascotas que regresan a sus hogares tienen etiquetas de identificación, microchip o tatuaje</h5>
+					        <p>Por ello nos podemos apoyar en la tecnologia para proteger nuestros seres queridos</p>
+					      </div>
+					    </div>
+					    <div class="carousel-item" data-bs-interval="10000">
+					      <img src="/img/carousel/sl4.jpg" class="d-block w-100" alt="...">
+					      <div class="carousel-caption d-none d-md-block">
+					        <h5>El 80% de los dueños de mascotas creen que las etiquetas de identificación son crucialmente importantes</h5>
+					        <p>sin embargo, sólo el 33% informa que su mascota siempre porta una</p>
+					      </div>
+					    </div>
+					    <div class="carousel-item" data-bs-interval="10000">
+					      <img src="/img/carousel/sl5.jpg" class="d-block w-100" alt="...">
+					      <div class="carousel-caption d-none d-md-block">
+					        <h5>Una mascota no es un regalo, es una responsabilidad</h5>
+					        <p>cultivemos conciencia y responsabilidad en la familia</p>
+					      </div>
+					    </div>
+					    <div class="carousel-item" data-bs-interval="10000">
+					      <img src="/img/carousel/sl6.jpg" class="d-block w-100" alt="...">
+					      <div class="carousel-caption d-none d-md-block">
+					        <h5>Debemos respetar el bienestar de los animales</h5>
+					        <p>por ello antes de adoptar considera tu espacio</p>
+					      </div>
+					    </div>
+					  </div>
+					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    <span class="visually-hidden">Previous</span>
+					  </button>
+					  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					    <span class="visually-hidden">Next</span>
+					  </button>
 					</div>
 				</div>
 			</div>

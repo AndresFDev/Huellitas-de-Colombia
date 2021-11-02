@@ -15,12 +15,13 @@ public class LoginController {
 	public String login(@RequestParam(value="error", required = false) String error, Model model, Principal principal, RedirectAttributes flash) {
 		if(principal != null) {
 			flash.addFlashAttribute("info", "Existe una sesion iniciada");
-			return "redirect:/";
+			return "redirect:/profile/view";
 		}
 		
 		if(error != null) {
 			model.addAttribute("danger", "Usuario o contraseña incorrecto");
 		}
+		model.addAttribute("titleBanner", "Iniciar Sesion");
 		return "login";
 	}
 }

@@ -4,37 +4,36 @@
 <body>
 
 	<header th:replace="layout/layout :: header"></header>
-
-	<div class="container center content round col-sm-4">
-		<div class="d-flex justify-content-center align-items-center min-vh-100">
-			<div class="box-card border-success border rounded">
-				<div class="card border-0 w-100">
-					<div class="card-header border-0">
-						<h5 class="card-title text-center text-uppercase">Iniciar sesion</h5>
-					</div>
-					<div class="card-body border-0">
-						<form th:action="@{/login}" method="post">
-							<div class="col-auto mb-3">
-								<input class="form-control" type="text" name="username"
-									id="username" placeholder="Nombre de usuario" maxlength="100"
+	<main>
+		<section th:replace="layout/banner :: banner"></section>
+		<section th:replace="layout/layout :: alerts"></section>
+		<section>
+			<div class="container center content round col-sm-4 mt-5 pt-5">
+				<div class="d-flex justify-content-center align-items-center">
+					<div class="login-body border-0 col-6">
+						<form th:action="@{/login}" method="post" >
+							<div class="form-floating col-auto mb-3">
+								<input class="form-control" type="email" name="username"
+									id="username" placeholder="pet@mail.com" maxlength="100"
 									autofocus required>
+								<label class="text-start d-block" for="username">Correo Electronico</label>
 							</div>
-							<div class="col-auto mb-3">
+							<div class="form-floating col-auto mb-3">
 								<input class="form-control" type="password" name="password"
 									id="password" placeholder="Contraseña" maxlength="80" required>
+								<label class="text-start d-block" for="password">Contraseña</label>
 							</div>
 		
 							<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-								<input class="btn btn-lg btn-outline-success me-md-2 btn-block text-uppercase w-100"
+								<input class="btn btn-lg btn-primary me-md-2 btn-block text-uppercase w-100"
 									type="submit" value="Ingresar">
 							</div>
 						</form>
 					</div>
-				</div>		
+				</div>
 			</div>
-		</div>
-	</div>
-
+		</section>
+	</main>
 	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>

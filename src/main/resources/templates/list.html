@@ -6,8 +6,9 @@
 <body>
 
 	<header th:replace="layout/layout :: header"></header>
-	<section th:replace="layout/banner :: banner"></section>
 	<main>
+		<section th:replace="layout/banner :: banner"></section>
+		<section th:replace="layout/layout :: alerts"></section>
 		<section>
 			<div class="container-fluid mt-5 pt-5">
 				<div class="row">
@@ -67,13 +68,13 @@
 								<div class="card-header bg-primary-color">
 									<h3
 										class="title-main text-left text-white text-primary text-uppercase fs-5 fw-bold text-center">
-										<img srcset="../img/h_c_s.svg" alt="huellita"
+										<img srcset="/img/h_c_s.svg" alt="huellita"
 											class="img-responsive img-pre" /> <span
 											th:text="${post.pet.name}"></span>
 									</h3>
 								</div>
 								<div class="box-img-post position-relative">
-									<img src="../img/pe1.jpg" class="card-img rounded-0" alt="...">
+									<img th:src="@{'/uploads/'+${post.pet.photo}}" class="card-img rounded-0" alt="...">
 									<span th:if="${post.pet.petStatus.id == 1}" class="tag-red tag position-absolute" th:text="${post.pet.petStatus.name}">Encontrado</span>
 									<span th:if="${post.pet.petStatus.id == 2}" class="tag-green tag position-absolute" th:text="${post.pet.petStatus.name}">Encontrado</span>
 								</div>
@@ -99,7 +100,7 @@
 								</div>
 								<div class="card-footer p-0">
 									<a class="btn btn-primary w-100 text-uppercase p-3 fs-4" 
-									th:href="@{/pet/view/}+${post.pet.id}">Mirame!</a>
+									th:href="@{/post/view/}+${post.pet.id}">Mirame!</a>
 								</div>
 							</div>
 						</div>

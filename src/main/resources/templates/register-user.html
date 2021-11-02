@@ -5,68 +5,72 @@
 	<body>
 		
 		<header th:replace="layout/layout :: header"></header>
-		
-		<div class="container center content round col-sm-4">
-    		<div class="d-flex justify-content-center align-items-center min-vh-100">
-		        <div class="box-card border-success border rounded">
-		            <div class="card border-0 w-100">
-		                <div class="card-header border-0">
-		                    <h5 class="card-title text-center text-uppercase">Registro</h5>
-		                </div>
-		                <div class="card-body border-0">
-		                    <form class="needs-validation" novalidate th:action="@{/register}" th:object="${user}" method="post">
-		                        <div class="col-auto mb-3">
-		                            <label class="text-start d-block" for="name">Nombre</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{name}" id="name" placeholder="Ingrese su nombre" maxlength="100">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
-								</div>
-									        
-		                        <div class="col-auto mb-3">
-		                            <label class="text-start d-block" for="name">Apellido</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{lastname}" id="lastname" placeholder="Ingrese su apellido" maxlength="100">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></small>
-		                        </div>
-									        
-		                        <div class="col-auto mb-3">
-		                            <label class="text-start d-block" for="name">Direccion</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{direction}" id="direction" placeholder="Ingrese su direccion" maxlength="100">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}"></small>
-		                        </div>
-									        
-		                        <div class="col-auto mb-3">
-		                            <label class="text-start d-block" for="email">Correo electronico</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="email" th:field="*{email}" id="email" placeholder="email@email.com" maxlength="100">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
-		                        </div>
-									        
-		                        <div class="col-auto mb-3">
-		                            <label class="text-start d-block" for="cedula">Cedula de Identidad</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{cedula_identy}" id="cedula" placeholder="1234123123" maxlength="45">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('cedula_identy')}" th:errors="*{cedula_identy}"></small>
-		                        </div>
-									        
-		                        <div class="col-auto mb-3">        
-		                            <label class="text-start d-block" for="phone">Teléfono</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="tel"  th:field="*{telefone_number}" id="phone" placeholder="555-555-5555" maxlength="45">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('telefone_number')}" th:errors="*{telefone_number}"></small>
-		                        </div>
-									        
-		                        <div class="col-auto mb-3">
-		                            <label class="text-start d-block" for="password">Contraseña</label>
-		                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="password"  th:field="*{password}" id="password" placeholder="Ingrese contraseña" maxlength="80">
-		                            <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
-		                        </div>
-									        	        
-		                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-		                            <input class="btn btn-outline-success me-md-2 d-block w-100" type="submit" value="Crear Usuario">
-		                        </div>
-		                        <input type="hidden" th:field="*{id}" />
-							</form>
-						</div>
-					</div>		
+		<main>
+			<section th:replace="layout/banner :: banner"></section>
+			<section th:replace="layout/layout :: alerts"></section>
+			<section>
+			<div class="container center content round col-sm-4 mt-5 pt-5">
+	    		<div class="d-flex justify-content-center align-items-center">
+                    <form class="needs-validation w-100 row" novalidate th:action="@{/profile/register}" th:object="${user}" method="post">                    
+	                	<div class="box-register border-0 col-6">
+	                        <div class="form-floating col-auto mb-3">
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{name}" id="name" placeholder="Ingrese su nombre" maxlength="100">
+	                            <label class="text-start d-block" for="name">Nombre</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+							</div>
+								        
+	                        <div class="form-floating col-auto mb-3">
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{lastname}" id="lastname" placeholder="Ingrese su apellido" maxlength="100">
+	                            <label class="text-start d-block" for="name">Apellido</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></small>
+	                        </div>
+								        
+	                        <div class="form-floating col-auto mb-3">
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{direction}" id="direction" placeholder="Ingrese su direccion" maxlength="100">
+	                            <label class="text-start d-block" for="name">Direccion</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('direction')}" th:errors="*{direction}"></small>
+	                        </div>							        
+	                        <div class="form-floating col-auto mb-3">
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="email" th:field="*{email}" id="email" placeholder="email@email.com" maxlength="100">
+	                            <label class="text-start d-block" for="email">Correo electronico</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+	                        </div>
+	                   	</div>                   
+	                	<div class="box-register border-0 col-6">	
+								        
+	                        <div class="form-floating col-auto mb-3">
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="text" th:field="*{cedula_identy}" id="cedula" placeholder="1234123123" maxlength="45">
+	                            <label class="text-start d-block" for="cedula">Cedula de Identidad</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('cedula_identy')}" th:errors="*{cedula_identy}"></small>
+	                        </div>
+								        
+	                        <div class="form-floating col-auto mb-3"> 
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="tel"  th:field="*{telefone_number}" id="phone" placeholder="555-555-5555" maxlength="45">       
+	                            <label class="text-start d-block" for="phone">Teléfono</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('telefone_number')}" th:errors="*{telefone_number}"></small>
+	                        </div>
+								        
+	                        <div class="form-floating col-auto mb-3">
+	                            <input class="form-control" th:errorClass="'form-control alert-danger is-invalid'" type="password"  th:field="*{password}" id="password" placeholder="Ingrese contraseña" maxlength="80">
+	                            <label class="text-start d-block" for="password">Contraseña</label>
+	                            <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+	                        </div>
+								        	        
+	                        <div th:if="${edit == '0'}" class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+	                            <input class="btn btn-primary me-md-2 d-block w-100 btn-lg" type="submit" value="Crear Usuario">
+	                        </div>
+								        	        
+	                        <div th:if="${edit == '1'}" class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+	                            <input class="btn btn-primary me-md-2 d-block w-100 btn-lg" type="submit" value="Guardar Usuario">
+	                        </div>
+	                        
+	                        <input type="hidden" th:field="*{id}" />
+	                    </div>
+					</form>				
 				</div>
 			</div>
-		</div>
+		</section>
+		</main>
 		<footer th:replace="layout/layout :: footer"></footer>
 	</body>	
 </html>

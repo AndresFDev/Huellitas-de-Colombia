@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ import com.mintic.sprintboot.web.app.models.entity.User;
 import com.mintic.sprintboot.web.app.models.services.IUserService;
 
 @Controller
+@RequestMapping("/profile")
 public class UserController {
 
 	protected final Log logger = LogFactory.getLog(this.getClass());
@@ -35,17 +37,6 @@ public class UserController {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	@GetMapping({"/index", "/", "", "/home", "index"})
-	public String index(Model model, Authentication authentication) {
-		model.addAttribute("title", "Hola Huellitas Colombia");
-		
-		if(authentication != null) {
-			logger.info("Hola usuario "+authentication.getName());
-		}
-		
-		return "index";
-	}
-
 	@Secured("ROLE_ADMIN")
 	@GetMapping(value="/list")
 	public String listar(Model model) {
@@ -57,8 +48,10 @@ public class UserController {
 	@GetMapping(value = "/register")
 	public String create(Map<String, Object> model) {
 		User user = new User();
-		model.put("user", user);
 		model.put("titulo", "Registro de nuevo usuario");
+		model.put("titleBanner", "Registro");
+		model.put("user", user);
+		model.put("edit", "0");
 				
 		return "register-user";
 	}
@@ -80,7 +73,23 @@ public class UserController {
 		}
 		model.put("user", user);
 		model.put("titulo", "Editar usuario");
+		model.put("titleBanner", "Editar");
+		model.put("edit", "1");
 		return "register-user";
+	}
+	
+
+	@PreAuthorize("hasRole('ROLE_USER')")
+	@RequestMapping(value="/view")
+	public String view(Map <String, Object> model, RedirectAttributes flash) {
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findEmail(auth.getName());
+		
+		model.put("user", user);
+		model.put("titulo", "Bienvenido "+user.getName());
+		model.put("titleBanner", "Bienvenido "+user.getName());
+		return "view-user";
 	}
 	
 	@PostMapping(value="/register")
@@ -104,7 +113,7 @@ public class UserController {
 		userService.saveRole(role);
 						
 		flash.addFlashAttribute("success", mensajeFlash);
-		return "redirect:index";
+		return "redirect:/profile/view";
 	}
 	
 }

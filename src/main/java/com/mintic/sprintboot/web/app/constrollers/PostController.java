@@ -79,6 +79,7 @@ public class PostController {
 
 		model.put("titulo", "Registro de nueva mascota");
 		model.put("titleBanner", "Me conoces?");
+		model.put("edit", "0");
 
 		return "new-post";
 	}
@@ -86,18 +87,26 @@ public class PostController {
 	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping(value = "/edit/{id}")
 	public String edit(@PathVariable(value="id") Long id, Map<String, Object> model, RedirectAttributes flash) {
-
+		
 		Post post = null;
 		if(id > 0) {
 			post = postService.findOne(id);
 			if(post == null) {
 				flash.addFlashAttribute("danger", "Post no existe!");
-				return "redirect:/index";
+				return "redirect:/post/list";
 			}
 		}
 		else {
 			flash.addFlashAttribute("danger", "Id del post no puede ser 0!");
-			return "redirect:/index";
+			return "redirect:/post/list";
+		}		
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findEmail(auth.getName());
+		
+		if(user.getId() != post.getUser().getId()) {
+			flash.addFlashAttribute("warning", user.getName() + " "+ user.getLastname()+ " No tiene los permisos para editar este caso!");
+			return "redirect:/post/list";
 		}
 		
 		model.put("post", post);
@@ -114,6 +123,7 @@ public class PostController {
 
 		model.put("titulo", "Registro de nueva mascota");
 		model.put("titleBanner", "Me conoces?");
+		model.put("edit", "1");
 
 		return "new-post";
 	}
@@ -212,7 +222,7 @@ public class PostController {
 		postService.savePet(pet);
 
 		flash.addFlashAttribute("success", mensajeFlash);
-		return "redirect:/";
+		return "redirect:/post/list";
 	}
 
 	@GetMapping(value = "list")
@@ -227,7 +237,7 @@ public class PostController {
 		
 		String getPetType = allParams.getParameter("type");		
 		if(getPetType != null) {
-			petsType = petsTypeService.findOne(Long.valueOf(getPetType.trim()));
+			petsType = petsTypeService.findByName(getPetType);
 			band = true;
 		}				
 		
@@ -241,19 +251,22 @@ public class PostController {
 
 		String getPetSize = allParams.getParameter("size");
 		if(getPetSize != null) {
-			petsSize = petsSizeService.findOne(Long.valueOf(getPetSize.trim()));
+			petsSize = petsSizeService.findByName(getPetSize);
 			band = true;
 		}
 
 		String getPetBreed = allParams.getParameter("breed");
 		if(getPetBreed != null) {
-			petsBreed = petsBreedService.findOne(Long.valueOf(getPetBreed.trim()));
+			petsBreed = petsBreedService.findByName(getPetBreed);
 			band = true;
 		}
 		if(!band)
 			postList = postService.findAll();
 		else {
-			postList = postService.findByFilter((getPetType != null)?getPetType:"0", (getPetStatus != null)?getPetStatus:"0", (getPetSize != null)?getPetSize:"0", (getPetBreed != null)?getPetSize:"0");
+			postList = postService.findByFilter((getPetType != null)? String.valueOf(petsType.getId()):"0",
+												(getPetStatus != null)? String.valueOf(petsStatus.getId()):"0",
+												(getPetSize != null)? String.valueOf(petsSize.getId()):"0",
+												(getPetBreed != null)? String.valueOf(petsBreed.getId()):"0");
 			
 		}
 		
@@ -271,7 +284,6 @@ public class PostController {
 		return "list";
 	}
 	
-
 	@PostMapping(value = "/filter")
 	public String filter(@Valid Post post, BindingResult result, Model model,
 			HttpServletRequest allParams, RedirectAttributes flash) {
@@ -311,5 +323,25 @@ public class PostController {
 			return "redirect:/post/list"+base;
 		else
 			return "redirect:/post/list";
+	}
+
+	@RequestMapping(value = "/view/{id}")
+	public String view(@PathVariable(value="id") Long id, Map<String, Object> model, RedirectAttributes flash) {
+		Post post = postService.findOne(id);
+		String edit = "0";
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findEmail(auth.getName());	
+		if(user != null) {	
+			if(user.getId() == post.getUser().getId()) {
+				edit = "1";
+			}
+		}
+		
+		model.put("post", post);
+		model.put("edit", edit);
+		model.put("titulo", "Registro de nueva mascota");
+		model.put("titleBanner", post.getPet().getName());
+		return "view-post";
 	}
 }

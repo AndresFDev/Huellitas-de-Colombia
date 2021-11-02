@@ -51,6 +51,7 @@ button,body,legend,input,fieldset,a {
     position: relative;
     box-shadow: 0px 0px 35px var(--primary);
     background-position: center top;
+    max-height: 40vh;
 }
 
 .banner-header::before {

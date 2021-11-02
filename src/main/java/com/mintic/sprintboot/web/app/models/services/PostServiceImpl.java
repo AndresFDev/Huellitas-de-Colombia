@@ -4,11 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,38 +68,97 @@ public class PostServiceImpl implements IPostService{
 
 	@Override
 	public List<Post> findByFilter(String type, String status, String size, String breed) {
-		String where = "";
-		if(!status.equals("0"))
-			where += "PE.pet_status_id = "+status;
+		String combination = "";
 		
-		if(!where.equals(""))
-			where += " AND ";
+		List<Post> filterPost = null;
 		
-		if(!type.equals("0"))
-			where += "PE.pet_type_id = "+type;
+		// Combination Status : 1
+		if(!status.equals("0")) {
+			combination += "1";
+		}
 		
-		if(!where.equals(""))
-			where += " AND ";
+		// Combination Type : 2
+		if(!type.equals("0")) {
+			combination += "2";
+		}
 		
-		if(!size.equals("0"))
-			where += "PE.pet_size_id = "+size;
+		// Combination Size : 3	
+		if(!size.equals("0")) {
+			combination += "3";
+		}
 		
-		if(!where.equals(""))
-			where += " AND ";
+		// Combination Breed : 4
+		if(!breed.equals("0")) {
+			combination += "4";
+		}
 		
-		if(!breed.equals("0"))
-			where += "PE.pet_breed_id = "+breed;
+		// Status : 1
+		if(combination.equals("1"))
+			filterPost = postDao.postfilterByStatus(status);
 		
-		@SuppressWarnings("unchecked")
+		//Type : 2
+		if(combination.equals("2"))
+			filterPost = postDao.postfilterByType(type);
+		
+		//Size : 3
+		if(combination.equals("3"))
+			filterPost = postDao.postfilterBySize(size);
+		
+		//Breed : 4
+		if(combination.equals("4"))
+			filterPost = postDao.postfilterByBreed(breed);
+		
+		// Status : 1 AND Type : 2
+		if(combination.equals("12"))
+			filterPost = postDao.postfilterByTypeANDStatus(type, status);
+		
+		// Status : 1 AND Size : 3	
+		if(combination.equals("13"))
+			filterPost = postDao.postfilterBySizeANDStatus(size, status);
+		
+		// Status : 1 AND Breed	:4
+		if(combination.equals("14"))
+			filterPost = postDao.postfilterByBreedANDStatus(breed, status);		
+		
+		// Type : 2 AND Breed : 4
+		if(combination.equals("12"))
+			filterPost = postDao.postfilterByTypeANDStatus(type, status);
+		
+		// Type : 2 AND Size : 3
+		if(combination.equals("13"))
+			filterPost = postDao.postfilterBySizeANDStatus(size, status);
+		
+		// Size : 3 AND Breed : 4
+		if(combination.equals("14"))
+			filterPost = postDao.postfilterBySizeANDBreed(size, type);
+
+		
+		// Status : 1 AND Type : 2 AND Size : 3
+		if(combination.equals("123"))
+			filterPost = postDao.postfilterByStatusANDTypeANDSize(status, type, size);		
+		
+		// Type : 2 AND Size : 3 AND Breed : 4
+		if(combination.equals("234"))
+			filterPost = postDao.postfilterByTypeANDSizeANDBreed(type, size, breed);
+		
+		// Status : 1 AND Size : 3 AND Breed : 4
+		if(combination.equals("134"))
+			filterPost = postDao.postfilterByStatusANDSizeANDBreed(status, size, breed);
+		
+		// Status : 1 AND Type : 2 AND Breed : 4
+		if(combination.equals("124"))
+			filterPost = postDao.postfilterByStatusANDTypeANDBreed(status, type, breed);
+		
+		/*@SuppressWarnings("unchecked")
 		List<Post> query
 	      = em.createNativeQuery(
 	          "SELECT PO.* "
 	          + "FROM posts AS PO "
 	          + "INNER JOIN pets PE ON PO.id = PE.id "
 	          + "WHERE PE.pet_breed_id = 13 AND PE.pet_size_id = 3 AND PE.pet_status_id = 2 AND PE.pet_type_id = 5 "
-	          + "ORDER BY PO.create_at").getResultList();
+	          + "ORDER BY PO.create_at").getResultList();*/
 		
-	    return query;
+	    return filterPost;
 	}
 	
 }
