@@ -1,33 +1,29 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { Alert, Card, Col, Container, Image, Row } from 'react-bootstrap'
-import { SignUpForm } from '../components/SignUpForm'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { Alert, Card, Container, Image } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom'
 import validator from 'validator'
-import {isObjetoVacio} from '../connection/helpers/isObjetoVacio'
-import {registrarUsuario, loginUsuario} from '../connection/autenticacionAcciones'
-import img_logo from '../img/logo_t_w.svg'
-import '../css/main.css'
-import '../css/signup.css'
-import '../js/bgChange';
+import { isObjetoVacio } from '../helpers/isObjetoVacio';
+import { registroUsuario, loginUsuario } from '../acciones/autenticacionAcciones';
+import SignUpFormulario from '../components/formularios/SignUpFormulario';
+import img_logo from '../assets/img/logo_t_w.svg'
+import '../assets/css/main.css'
+import '../assets/css/signup.css'
 
-function SignUp() {
+export default function SignUp() {
 
     const [errores, setErrores] = useState({});
-
     const dispatch = useDispatch();
-
-    const conectado = useSelector(state => state.auth.conectado);
-
+    const conectado = useSelector(state=>state.auth.conectado);
     const history = useHistory();
 
-    useEffect(()=>{
-        if(conectado){
+    useEffect(() => {
+        if(conectado) {
             history.push("/");
         }
     });
 
-    const registro = ({userName, email, password, nombre, telefono})=> {
+    const registro = ({userName, email, password, confirmarPassword, nombre, phone, ciudadCiudades })=> {
 
         const errores={};
         setErrores(errores);
@@ -52,16 +48,28 @@ function SignUp() {
             }
         }
 
+        if(validator.isEmpty(confirmarPassword)){
+            errores.confirmarPassword = "ERROR. Ingrese la contraseña nuevamente para confirmar";
+        }else{
+            if(!validator.equals(confirmarPassword, password)){
+                errores.confirmarPassword = "ERROR. Las contraseñas no coinciden";
+            }
+        }
+
         if(validator.isEmpty(nombre)){
             errores.nombre = "ERROR. El nombre no puede estar vacio";
         }
 
-        if(validator.isEmpty(telefono)){
-            errores.telefono = "ERROR. El telefono no puede estar vacio";
+        if(validator.isEmpty(phone)){
+            errores.phone = "ERROR. El telefono no puede estar vacio";
         }else{
-            if(!validator.isLength(telefono, {min:10, max:10})){
-                errores.telefono = "ERROR. El telefono debe tener 10 numeros";
+            if(!validator.isLength(phone, {min:10, max:10})){
+                errores.phone = "ERROR. El telefono debe tener 10 numeros";
             }
+        }
+
+        if(validator.isEmpty(ciudadCiudades)){
+            errores.ciudadCiudades = "Debe seleccionar una ciudad"
         }
 
         if(!isObjetoVacio(errores)){
@@ -69,49 +77,35 @@ function SignUp() {
             return;
         }
 
-        // console.log({email, password})
-
-        dispatch(registrarUsuario({userName, email, password, nombre, telefono}))
-            .then(response => {
-                dispatch(loginUsuario({userName, password}));
-
-            })
-            .catch(error =>{
-                setErrores({registro: error.response.data.menssage})
-            })
+        dispatch(registroUsuario({userName, password, nombre, email, phone, ciudadCiudades}))
+        .then(response=>{
+            dispatch(loginUsuario({userName, password}));
+        })
+        .catch(err=>{
+            setErrores({ registroErr: err.response.data.message });
+        });
     }
 
     return (
-        <div className="flex-container w-100 mt-3"> 
-            <div className="flex-container mb-3">
-                <Container>
-                    <Row>
-                        <Col>
-                            <Card body id="signup" className="flex-container card round border-br bg-brown m-3">
-                                <div className="flex-container">
-                                    <Image src={img_logo} width="450hv" className=""/>
-                                </div>
-                                <div className="flex-container mt-3"> 
-                                    {errores.registro && <Alert variant="danger">{errores.registro}</Alert>}
-                                    <h3 className="text-center">Registro</h3>
-                                </div>
-                                <div className="flex-container">
-                                <SignUpForm errores={errores} enviarCallback={registro}></SignUpForm>
-                                </div>
-                                <div className="flex-container mt-3">
-                                    <Link to={'/login'}>¿Ya tienes una cuenta? Inicia sesion aquí</Link>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Container>
-                <Fragment>
-                    {/* <BgChange /> */}
-                </Fragment>
+
+        <Container>
+            <div className="flex-container mt-3"> 
+                <div className="flex-container mb-3">
+                    <Card id="signup" className="flex-container border-br bg-brown">
+                        <div className="flex-container mt-3">
+                            <Image src={img_logo} width="450hv" className=""/>
+                        </div>
+                            {errores.registroErr && <Alert variant="danger">{errores.registroErr}</Alert>}
+                            <h3 className="text-center mt-3">Registro</h3>
+                            <SignUpFormulario errores={errores} enviarCallback={registro}></SignUpFormulario>
+                        <div className="flex-container mb-3">
+                            <Link to={'/login'}>¿Ya tienes una cuenta? Iniciar sesion aqui</Link>
+                        </div>
+                    </Card>
+                </div>
             </div>
-        </div>
-               
+        </Container>
     )
 }
 
-export {SignUp}
+

@@ -1,0 +1,45 @@
+#post {
+    /* overflow: hidden; */
+    background-color: none;
+    color: #fff;
+    margin: 0;
+    padding: 10;
+    max-height: 1090px;
+    max-width: 460px;
+    min-height: 1090px;
+    min-width: 460px;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0px 0px 15px var(--primary);
+    border-radius: 15px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color:white;
+}
+
+a:hover {
+    color:var(--primary-dark);
+}
+
+.bg-green{
+    background-color: #8ABB2B;
+    color: white;
+}
+
+.bg-brown{
+    background-color: #c07d4ea6;
+    color: var(--primary-dark);
+}
+
+.border-br{
+    border: #C07E4E 1px solid;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+

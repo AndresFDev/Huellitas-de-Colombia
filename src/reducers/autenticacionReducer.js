@@ -1,11 +1,11 @@
-import { SET_USUARIO_ACTUAL } from './tipos'
+import { SET_USUARIO_ACTUAL } from "../acciones/tipos";
 
 const estadoInicial = {conectado: false, usuario: {}};
 
-export default function autenticacionReducer(estado = estadoInicial, accion){
+export default function autenticacionReducer(estado = estadoInicial, accion) {
 
     const {type, payload} = accion;
-    
+
     switch (type) {
         case SET_USUARIO_ACTUAL:
             return{
@@ -16,5 +16,4 @@ export default function autenticacionReducer(estado = estadoInicial, accion){
         default:
             return estado;
     }
-
 }

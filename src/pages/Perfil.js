@@ -1,46 +1,50 @@
-import React, { Fragment } from 'react'
-import { Container } from 'react-bootstrap';
-import { MiPerfil } from '../components/MiPerfil';
-import { MisEntradas } from '../components/MisEntradas';
-import "../css/main.css";
-import "../css/profile.css";
-import "../img/separador_br_v.svg";
+import React, { Fragment, useEffect, useState } from 'react'
+import axios from 'axios';
+import { Container, Spinner } from 'react-bootstrap';
+import { Usuario } from '../components/Usuario';
+import {  PROFILE_ENDPOINT } from '../helpers/endpoints';
+import DatosVacio from '../components/utils/DatosVacio';
+import "../assets/css/main.css";
+import "../assets/css/titles.css";
+import "../assets/css/profile.css";
+import "../assets/img/separador_br_v.svg";
 
-function Perfil() {
+export default function Perfil() {
+
+    const [usuarios, setUsuarios] = useState([]);
+    const [fetching, setFeching] = useState(true);
+
+    useEffect(()=>{
+        axios.get(PROFILE_ENDPOINT).then(response => {
+            setUsuarios([response.data]);
+            setFeching(false);
+        }).catch(e => {
+            console.error(e);
+            setFeching(false);
+        })
+    }, []);
 
 return (
     <Container className="mt-3">
         <Fragment>
             <div className="flex-container">
-            <h3 className="pt-3">Mi Perfil</h3>
+                <div id="title" className="flex-container">
+                    <div id="title_in" className="flex-container col-12">
+                        <h3 className="pt-3">Mi Perfil</h3>
+                    </div>
+                </div>
             </div>
             <div className="flex-container rounded"> 
-                <MiPerfil id="profile"/>
-            </div>
-        </Fragment>
-        <Fragment>
-            <div className="flex-container">
-            <h3 className="pt-3">Mis Entradas</h3>
-            </div>
-            <div className="flex-container rounded"> 
-                <MisEntradas/>
+                <div>
+                    {fetching && <Spinner animation="grow" variant="dark" />}  
+                    {!fetching && usuarios.length === 0 &&
+                        <DatosVacio texto="ERROR"></DatosVacio>
+                    } 
+                </div>
+                <div>
+                {usuarios.map(usuario => <Usuario key={usuario.userId} usuario={usuario} controlesRender={false}></Usuario>)}
+                </div>
             </div>
         </Fragment>
     </Container>
 )}
-
-
-/* 
-<main class="d-flex flex-column bg-main">
-    <h3 class="d-flex justify-content-center p-3">Mi Perfil</h3>
-    <div id="profile" class="d-flex justify-content-center">
-        <iframe src="../components/miPerfil.html" frameborder="0" width="400vh" height="540vh"></iframe>
-    </div>
-    <h3 class="d-flex justify-content-center p-3">Mis Entradas</h3>
-    <div class="d-flex justify-content-center pb-3">
-        <iframe src="../components/misEntradas.html" frameborder="0" width="85%" height="440vh"></iframe>
-    </div> 
-</main>
-*/
-
-export {Perfil}

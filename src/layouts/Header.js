@@ -1,6 +1,6 @@
 import { Container, Image } from "react-bootstrap"
-import "../css/main.css"
-import head_img from "../img/logo_t_w.svg"
+import "../assets/css/main.css"
+import head_img from "../assets/img/logo_t_w.svg"
 
 function Header() {
 

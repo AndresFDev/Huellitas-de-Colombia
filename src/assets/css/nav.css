@@ -1,0 +1,83 @@
+#navbar {
+    background-color: none;
+    margin: 0;
+    padding: 0;
+    z-index: 99;
+    max-height: 100%;
+    margin: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    box-shadow: 0 5px 15px var(--primary);
+}
+
+.Logo {
+    background-image: url(../img/logo_huella_w.svg);
+}
+
+.bg-dark {
+    background-color: var(--primary) !important;
+}
+
+.dropdown-menu {
+    color: white !important;
+    background-color: var(--primary);
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: white;
+    text-decoration: none;
+    background-color: var(--primary-dark);
+}
+
+.dropdown-item.active, .dropdown-item:hover {
+    color: white;
+    text-decoration: none;
+    background-color: var(--primary-dark);
+}
+
+.img-container-nav {
+    position: relative;
+    max-width: 30px;
+    max-height: 30px;
+    overflow:hidden;
+    border-radius: 50%;
+}
+
+.img-container-nav img{
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+#plus-c {
+    background-color: #8ABB2B;
+    color: white;
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#plus-c_in {
+    width: 90%;
+    margin: 2px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: white;
+    background-color: none;
+    color: white;
+    border-radius: 15px;
+}
+
+#ce {
+    min-width: 166px;
+    max-width: 166px;
+    width: 100%;
+}

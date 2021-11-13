@@ -1,103 +1,81 @@
-import React from 'react'
-import imgprofile from '../img/ej.jpg';
-import "../css/main.css";
-import "../css/profile.css";
+import React, { useState } from 'react'
+import imgprofile from '../assets/img/img_profile_1.svg';
+import "../assets/css/main.css";
+import "../assets/css/profile.css";
 import { Button, Form, FormControl, Image, InputGroup } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
-function EditarMiPerfil() {
+function EditarMiPerfil({errores, usuario, enviarCallback, editar}) {
 
-    const usuario = useSelector(state=>state.auth.usuario)
+    const [userName, setUserName] = useState(usuario.userName);
+    const [nombre, setNombre] = useState(usuario.nombre);
+    const [email, setEmail] = useState(usuario.email);
+    const [phone, setPhone] = useState(usuario.phone);
+     
+    
+    const enviarFormulario = (e) => {
+        e.preventDefault();
+        !editar ? enviarCallback({userName, nombre, email, phone}) : enviarCallback({userName, nombre, email, phone})
+    }
 
     return (
-        <div id="edit-profile" className="flex-container card round huella_edit p-2">
-            <div class="d-flex flex-column text-center">
-                <h4 className="">Usuaria</h4>
-                <div className="d-flex flex-column flex-container">
-                    <div className="flex-container">
-                    <div className="box-img-profile W-100 m-2">
-                        <Image src={imgprofile} className=""/>
-                    </div>
-                    </div>
-                    <Form.Group controlId="formFile-sm" className="mb-3">
-                        <Form.Label>Foto de perfil</Form.Label>
-                        <Form.Control className="form-control form-control-sm border-br" type="file" size="sm" />
-                    </Form.Group>
-                </div>
-                <div>
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Usuario</InputGroup.Text>
-                        <FormControl id="userName" type="text" value={usuario.sub} placeholder="userName" className="border-br text-uppercase"/>
-                    </InputGroup>
-
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Nombre</InputGroup.Text>
-                        <FormControl id="nombre" type="text" value={usuario.sub} placeholder="name" className="border-br text-uppercase"/>
-                    </InputGroup>
-
-                    <Form.Group controlId="genero" className="mb-3">
-                        <Form.Label>Género</Form.Label>
-                        <Form>
-                            {['radio'].map((type) => (
-                                <div key={`inline-${type}`} className="mb-3">
-                                <Form.Check
-                                    inline
-                                    label="Masculino"
-                                    name="group1"
-                                    type={type}
-                                    id={`inline-${type}-1`}
-                                />
-                                <Form.Check
-                                    inline
-                                    label="Femenino"
-                                    name="group1"
-                                    type={type}
-                                    id={`inline-${type}-2`}
-                                    checked
-                                />
-                                <Form.Check
-                                    inline
-                                    name="group1"
-                                    label="No específico"
-                                    type={type}
-                                    id={`inline-${type}-3`}
-                                />
+        <Form onSubmit={enviarFormulario}> 
+            {editar &&
+                <div id="edit-profile" className="card round huella_edit p-2">
+                    <div class="d-flex flex-column text-center col-12">
+                        <h4>Usuario</h4>
+                        <div className="d-flex flex-column flex-container mb-2">
+                            <div className="flex-container">
+                                <div className="box-img-profile shadow m-2">
+                                    <Image src={imgprofile} className=""/>
                                 </div>
-                            ))}
-                        </Form>
-                    </Form.Group>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <InputGroup className="mb-2">
+                                <InputGroup.Text className="bg-brown border-br col-6">Usuario</InputGroup.Text>
+                                <FormControl id="userName" type="text" value={userName} onChange={e=>setUserName(e.target.value)} placeholder="userName" className="border-br text-uppercase" required/>
+                                <Form.Control.Feedback type="invalid">
+                                    {errores.userName}
+                                </Form.Control.Feedback>
+                            </InputGroup>
 
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Correo</InputGroup.Text>
-                        <FormControl id="email" type="email" value={usuario.sub} placeholder="email" className="border-br text-lowercase"/>
-                    </InputGroup>
+                            <InputGroup className="mb-2">
+                                <InputGroup.Text className="bg-brown border-br col-6">Nombre</InputGroup.Text>
+                                <FormControl id="nombre" type="text" value={nombre} onChange={e=>setNombre(e.target.value)} placeholder="name" className="border-br text-uppercase" required/>
+                                <Form.Control.Feedback type="invalid">
+                                    {errores.nombre}
+                                </Form.Control.Feedback>
+                            </InputGroup>
 
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Telefono</InputGroup.Text>
-                        <FormControl id="telefono" type="phone" value={usuario.sub} placeholder="555555555" className="border-br"/>
-                    </InputGroup>
+                            <InputGroup className="mb-2">
+                                <InputGroup.Text className="bg-brown border-br col-6">Correo</InputGroup.Text>
+                                <FormControl id="email" type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="email@email.com" className="border-br text-lowercase" required/>
+                                <Form.Control.Feedback type="invalid">
+                                    {errores.email}
+                                </Form.Control.Feedback>
+                            </InputGroup>
 
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Contraseña</InputGroup.Text>
-                        <FormControl id="password" type="password" value={usuario.sub} placeholder="123456789" className="border-br"/>
-                    </InputGroup>
-
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Nueva contraseña</InputGroup.Text>
-                        <FormControl id="password" type="password" value={usuario.sub} placeholder="123456789" className="border-br"/>
-                    </InputGroup>
-
-                    <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-brown border-br col-6">Confirmar contraseña</InputGroup.Text>
-                        <FormControl id="password" type="password" value={usuario.sub} placeholder="123456789" className="border-br"/>
-                    </InputGroup>
-
-                    <div className="d-grid gap-2 rounded hover-brown mt-3">
-                        <Button variant="primary" size="lg">Guardar cambios</Button>{' '}
+                            <InputGroup className="mb-2">
+                                <InputGroup.Text className="bg-brown border-br col-6">Telefono</InputGroup.Text>
+                                <FormControl id="telefono" type="phone" value={phone} onChange={e=>setPhone(e.target.value)} placeholder="555555555" className="border-br" required/>
+                                <Form.Control.Feedback type="invalid">
+                                    {errores.phone}
+                                </Form.Control.Feedback>
+                            </InputGroup>  
+                            
+                        </div>
+                        
+                        <div className="d-grid gap-2 rounded hover-brown mt-3">
+                            <Button variant="primary" size="lg">{!editar ? "Crear " : "Editar "}
+                                    usuario</Button>{' '}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            }
+        </Form> 
+                
     )
 }
 
