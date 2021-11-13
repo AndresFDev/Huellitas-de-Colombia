@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
 }
 
-button,body,legend,input,fieldset {
+button,body,legend,input,fieldset,a {
     font-family: "Montserrat", sans-serif !important;
 }
 
@@ -16,33 +16,208 @@ button,body,legend,input,fieldset {
     font-size:xx-large;
 }
 
-.dashed {
-    border-style: dashed!important;
+.left-medium-head {
+    float: center!important;
+    overflow:hidden!important;
+    position: absolute;
+    top: 35%;
+    left: 0%;
+    transform: translate(-0%, -50%);
+    max-width: 90vh;
+    width: 100%;
+}
+
+.nav-w {
+    color: white !important;
+}
+
+.border-green {
     border-color:#8ABB2B !important;
-    border-radius: 25px;
+    border-radius: 15px;
+}
+
+.border-brown {
+    border-color:#C07E4E !important;
+    border-radius: 15px;
+}
+
+.border-black {
+    border-color: black !important;
+    border-radius: 15px;
+}
+
+.btn-fill {
+    width: 100% !important;
+}
+
+.fill {
+    height: 100% !important;
+}
+
+.no-marging {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .center {
-    width:100%;
-    overflow:hidden;
-    text-align:center!important;
+    float: center!important;
+    overflow:hidden!important;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.bg-none {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.bg-red {
+    background-color: red !important;
+}
+
+.bg-green {
+    background-color:#8ABB2B;
+}
+
+.bg-brown {
+    background-color:#C07E4E;
+}
+
+.bg-head {
+    background-image: url(../img/bg_p.jpg); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: 100%; 
+    height:70vh;
+}
+
+.bg-main {
+    background-image: url(../img/separador_br_v.svg); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: 8%; 
+    background-position: 100%;
+}
+
+.bg-signin {
+    background-image: url(../img/bg_signin.jpg); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: 100%; 
+    background-position: 100%;
+}
+
+.entradas-center {
+    float: center!important;
+    overflow:hidden!important;
+    text-align:center !important;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+}
+
+.hover {
+    background-color: #c07d4ea6 !important;
+    color:white !important;
+}
+
+a.black {
+    color: black !important;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+option:hover{
+    background-color:#c07d4e96!important;
+    color:#fff!important;
+}
+
+.hover-none:hover{
+    background-color:transparent!important;
+}
+
+.hover-brown:hover{
+    color:#fff!important;
+    background-color:#c07d4e96!important;
+}
+
+.black{
+    color: black !important;
+}
+
+.green{
+    background-color: #8ABB2B!important;
+}
+
+.brown{
+    color: #C07E4E !important;
+}
+
+.navbar-brown {
+    background-color: #C07E4E!important;
 }
 
 .left {
-    width:100%;
-    overflow:hidden;
-    text-align:left!important;
+    float: left;
+    text-align:left !important;
 }
 
 .right {
-    width:100%;
-    overflow:hidden;
-    text-align:right!important;
+    float: right;
+    padding: 10px;
 }
 
-.content {
-    margin: 1% auto;;
+.img-container {
+    /* position: relative; */
+    width:300px;
+    height:300px;
+    overflow:hidden;
+    border-radius: 50%;
 }
+
+.img-container img{
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+.img-container-card {
+    /* position: relative; */
+    width:235px;
+    height:235px;
+    overflow:hidden;
+    border-radius: 50%;
+}
+
+.img-container-card img {
+    width:100%;
+    height:auto;
+    vertical-align: auto;
+}
+
+
+/* #filtro option {
+    color:grey!important;
+    background-color:lightgray!important;
+}
+
+option:hover {
+    color:#000!important;
+    background:#c07d4e96!important;
+}
+
+select:hover {
+    color:#fff!important;
+    background-color:#c07d4e96!important;
+} */
 
 @font-face {
     font-family: 'Montserrat';
