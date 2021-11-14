@@ -2,4 +2,4 @@
 
 Creador:
 Andres Joaquín Flechas Paipa
-Estdiante MINTIC UNAB
+Estudiante MINTIC UNAB
